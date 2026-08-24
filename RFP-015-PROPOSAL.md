@@ -24,7 +24,7 @@ Peter Hucík - peter.hucik@vacuumlabs.com
 | :---- | :---- | :---- | :---- | :---- |
 | 1 | Boris Hristov | [GitHub](https://github.com/Soulrealz) · [CV](https://people.vacuumlabs.com/cv/7ca3b02f0626c586367860c6d1cb80811fee74b3162c95f671cdcd8b56cc7ab8) | Tech lead / Senior Full-stack Engineer | Full-time |
 | 2 | Goktug Gurbuzturk | [GitHub](https://github.com/goktug-gurbuzturk-wp) · [CV](https://people.vacuumlabs.com/cv/e2ddb12995f434c103c7cb022129c57f87eeab6637d8c2b58540936cd58b19da) | Senior Full-stack Engineer | Full-time |
-| 3 | Ladislav Dubravsky | [CV](https://people.vacuumlabs.com/cv/fb3e538365d3272e51fe8ecbc5de6ca209c0c5e260ef73a4a3909edec98e4aa8) | Senior Full-stack Engineer | Full-time |
+| 3 | Ladislav Dubravsky | [Github](https://github.com/ladislavdubravsky) · [CV](https://people.vacuumlabs.com/cv/fb3e538365d3272e51fe8ecbc5de6ca209c0c5e260ef73a4a3909edec98e4aa8) | Senior Full-stack Engineer | Full-time |
 | 4 | Marek Roštár | [GitHub](https://github.com/RostarMarek) · [CV](https://people.vacuumlabs.com/cv/9c5267a6e45103aa6eb1b05606b5d86701336170e3d3f6209dc6f05e958d397f) | Project Manager / Utility Dev | Full-time |
 | 5 | 0xcr1st0f | [CV](https://github.com/cr1st0f/cv/blob/main/cr1st0f_CV_updated.pdf) | Advisor | Part-time |
 
@@ -2057,7 +2057,7 @@ the account-model shape this RFP runs on — PDAs, ATAs, IDL-driven clients, pro
 not something we would be meeting for the first time here.
 
 **Constant-product AMM correctness, examined at invariant level.** We audited
-**[WingRiders](https://github.com/vacuumlabs/audits/blob/main/reports/wingriders-v2-v1.0.pdf)**, a
+**[WingRiders](https://github.com/vacuumlabs/audits/blob/master/reports/wingriders-v2-v1.0.pdf)**, a
 Cardano constant-product AMM DEX, in a full-time engagement of roughly 17.5 person-days. The part that
 bears on this proposal is the method rather than the report: we **reverse-engineered the pool's
 on-chain pricing independently of its documentation**, extracted its treasury and fee handling, and
