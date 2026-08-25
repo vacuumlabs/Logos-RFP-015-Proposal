@@ -1,4 +1,4 @@
-# \[PROPOSAL\] RFP-015 — `[PROJECT NAME — FILL IN]`
+# \[PROPOSAL\] RFP-015 — `Synarton`
 
 ---
 
@@ -8,7 +8,7 @@
 
 ## Your Project Name
 
-`[PROJECT NAME — FILL IN]`
+`Synarton`
 
 ## Team or Organization Name
 
@@ -1427,7 +1427,14 @@ This is not a defect in any implementation but a property of a rising-price mech
 multi-transaction privacy path, and no implementation can remove it. What one can do is reduce the
 gap, disclose the exposure, and give the creator a tool to blunt it.
 
-##### C22 — four mitigations, none of which pretend to eliminate it
+##### C22 — three reductions, one disclosure, and the residue that cannot be removed
+
+**Three of the four below reduce the penalty; the fourth discloses what is left.** The residue is
+structural rather than an implementation shortfall: price rises with every buy, and a private buy is
+irreducibly three transactions, so a gap exists and volume can land in it. Removing it altogether
+would take either a different pricing mechanism — which the RFP fixes — or the buy itself inside the
+PPE transaction, which fails R1 under exactly the contention R1 exists for (C14, §3.5.19). So we
+shrink the exposure, and we state what remains rather than describing a solved problem.
 
 1. **Submit the deshield and the buy in the same block.** Account A's id is derivable client-side
    before the deshield lands, so the buy transaction can be **built and submitted without waiting
@@ -1582,8 +1589,9 @@ is the sort of item that surfaces in an audit whether or not the bid mentions it
   permanently.
 - **C21 — Ephemeral account management is restart- and multi-device-safe**, with the account id
   derivable before the deshield lands, which is what enables the same-block mitigation.
-- **C22 — D-7 is mitigated, disclosed, and never claimed to be solved.** Same-block submission,
-  the one-directional mode, honest disclosure.
+- **C22 — D-7 is reduced, disclosed, and never claimed to be solved.** Three reductions —
+  same-block submission, the one-directional mode, the minimum-duration floor — plus honest
+  disclosure of the residue, which is structural and cannot be removed.
 - **C23 — The saga engine is direction-generic**, so private sells (C6) are incremental scope.
 
 - **C24 — Manual close is creator-authorised and time-constrained, and sold-back tokens re-enter the
@@ -2091,12 +2099,18 @@ Members.
 
 ## Post-Delivery Plan
 
-The program is immutable and the client stack is open source under MIT + Apache-2.0, so post-delivery support is defined rather than open-ended:
+Vacuumlabs maintains the project as a team — support is not tied to any single individual. Support runs through the public GitHub repository (issues and PRs) and the primary contact listed above. Delivery includes handover of everything an operator needs: the README deployment runbook, the published program addresses with their freeze-commit and image-id records, the M9 audit report and remediation record, and the per-operation compute-cost reports. The entire project is open-sourced under MIT and Apache-2.0, so every component is forkable and community-runnable rather than dependent on us.
 
-- **The two gated milestones (M7, M8)** are the formal post-delivery commitments: testnet 0.3 verification and mainnet deployment, each with fixed scope, triggered by platform availability.
-- **The C9 analytics migration** to native LP-0012 events when they land, behind a stable interface so analytics output is unchanged — documented at delivery, executed at M7.
-- **Defect reports** against the delivered code are triaged and fixed for the period agreed in commercial terms; the CI regression gates (the D-1 boundary test, the invariant suite, the cycle envelope) mean a regression fails the build rather than reaching a user.
-- **The M0 decision record** — the three declared deviations and the twelve readings of §3.7, with Logos's confirmation or direction against each — is a delivered artifact, so a future maintainer can see which behaviours were specification decisions rather than implementation choices.
+We provide a **6-month post-delivery support window** from acceptance of the final milestone, **included in the total requested budget**, covering:
+
+- **Defect warranty** — reproducible failures against the delivered test suite, fixed at no charge. A confirmed defect in the deployed bonding-curve program is shipped as a new versioned deployment through the same path as M6/M7/M8, with migration notes for the creators and holders of affected sales.
+- **Compatibility maintenance as LEZ and SPEL evolve.** The client surface is cheap to keep current by construction: the SPEL IDL is generated and frozen in M1 (U9), and the CLI and Basecamp mini-app both consume the single client core module rather than reimplementing it (C8), so a runtime change is one regeneration plus one module rather than three parallel updates. The lockfile pins the LEZ and SPEL revisions we build against, and the platform-triggered M7/M8 milestones already establish the re-verify-and-redeploy mechanism this maintenance follows.
+- **Analytics event-path activation** — when LP-0012's accepted event mechanism merges into mainline LEZ, the U8 observer switches from indexer calldata, `getAccountAtBlock` and intra-block replay to the native events, and the interim state-derived history is retired (C9). The observer's schema is fixed in M1 alongside the IDL, so this is activation, not redesign.
+- **Security-report handling** — security-relevant reports follow a documented disclosure path and are **acknowledged within 48 hours** with a fix or a documented mitigation. A launchpad holds other people's collateral, so this is the one commitment that is not best-effort.
+- **Integration support for early teams composing against the program.** The graduation seam exists precisely for this: close emits the graduation-relevant state — real collateral, seed reserve `R`, final spot — as a documented payload, so a DEX integration (RFP-004) or a downstream product can consume it without us reopening the program. The fee-rate and treasury admin authority is separable for the same reason.
+- **Feature extensions beyond the RFP scope are separate engagements**, not assumed here.
+
+**One handover artifact worth naming:** the M0 decision record — the three declared deviations and the twelve readings, with Logos's confirmation or direction against each — is a delivered artifact, so a future maintainer can see which behaviours were specification decisions rather than implementation choices.
 
 ## Permissions and Consent
 
