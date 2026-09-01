@@ -22,11 +22,12 @@ Peter Hucík - peter.hucik@vacuumlabs.com
 
 | \# | Name / pseudonym | Social links | Role | Status |
 | :---- | :---- | :---- | :---- | :---- |
-| 1 | Boris Hristov | [GitHub](https://github.com/Soulrealz) · [CV](https://people.vacuumlabs.com/cv/7ca3b02f0626c586367860c6d1cb80811fee74b3162c95f671cdcd8b56cc7ab8) | Tech lead / Senior Full-stack Engineer | Full-time |
-| 2 | Goktug Gurbuzturk | [GitHub](https://github.com/goktug-gurbuzturk-wp) · [CV](https://people.vacuumlabs.com/cv/e2ddb12995f434c103c7cb022129c57f87eeab6637d8c2b58540936cd58b19da) | Senior Full-stack Engineer | Full-time |
-| 3 | Ladislav Dubravsky | [Github](https://github.com/ladislavdubravsky) · [CV](https://people.vacuumlabs.com/cv/fb3e538365d3272e51fe8ecbc5de6ca209c0c5e260ef73a4a3909edec98e4aa8) | Senior Full-stack Engineer | Full-time |
-| 4 | Marek Roštár | [GitHub](https://github.com/RostarMarek) · [CV](https://people.vacuumlabs.com/cv/9c5267a6e45103aa6eb1b05606b5d86701336170e3d3f6209dc6f05e958d397f) | Project Manager / Utility Dev | Full-time |
-| 5 | 0xcr1st0f | [CV](https://github.com/cr1st0f/cv/blob/main/cr1st0f_CV_updated.pdf) | Advisor | Part-time |
+| 1 | Uroš Kočišević | [GitHub](https://github.com/kocisevic) · [CV](https://people.vacuumlabs.com/cv/ec6323f2737c840999667d42c7ca29630e99c942a12a5da2e91df295f3d55d0a) | Chief Product Owner | Full-time |
+| 2 | Boris Hristov | [GitHub](https://github.com/Soulrealz) · [CV](https://people.vacuumlabs.com/cv/7ca3b02f0626c586367860c6d1cb80811fee74b3162c95f671cdcd8b56cc7ab8) | Tech lead / Senior Full-stack Engineer | Full-time |
+| 3 | Goktug Gurbuzturk | [GitHub](https://github.com/goktug-gurbuzturk-wp) · [CV](https://people.vacuumlabs.com/cv/e2ddb12995f434c103c7cb022129c57f87eeab6637d8c2b58540936cd58b19da) | Senior Full-stack Engineer | Full-time |
+| 4 | Ladislav Dubravsky | [Github](https://github.com/ladislavdubravsky) · [CV](https://people.vacuumlabs.com/cv/fb3e538365d3272e51fe8ecbc5de6ca209c0c5e260ef73a4a3909edec98e4aa8) | Senior Full-stack Engineer | Full-time |
+| 5 | Marek Roštár | [GitHub](https://github.com/RostarMarek) · [CV](https://people.vacuumlabs.com/cv/9c5267a6e45103aa6eb1b05606b5d86701336170e3d3f6209dc6f05e958d397f) | Project Manager / Utility Dev | Full-time |
+| 6 | 0xcr1st0f | [CV](https://github.com/cr1st0f/cv/blob/main/cr1st0f_CV_updated.pdf) | Advisor | Part-time |
 
 ---
 
@@ -211,7 +212,7 @@ This matters because the invocation budget, not cycles, is the scarce resource i
 flows — and it is what makes the D-1 remedy cheap: the clamp adds arithmetic inside an existing
 invocation, not a new one.
 
-#### 3.5.5 F1 — the pricing core, and the defect that makes the sale unclosable
+#### 3.5.5 F1 pricing core
 
 **This is the finding we lead with, because it is fatal, it is arithmetic rather than opinion, and
 its remedy is already written in Logos's own code.**
@@ -329,7 +330,7 @@ withdrawal on a soft requirement — so it is M2's first scope item rather than 
 competing proposal requests this deviation; those that reach the boundary at all either schedule
 "revert-on-overshoot", shipping the defect, or propose the client-side cap refuted above.
 
-#### 3.5.6 F1, continued — where the collateral actually goes (D-5 on the buy, D-8 on the sell), and why `k` is not constant (D-2)
+#### 3.5.6 F1 collateral location
 
 ##### The contradiction (D-5, High)
 
@@ -571,7 +572,7 @@ position that was being protected. If Logos intends buys only, this is scope we 
 dev-weeks off M4 and nothing else changes, because the saga engine is direction-generic (C23). We
 build it rather than assume it away, so the reading is visible either way.
 
-#### 3.5.9 F4 and F5 — close, and what happens to the money
+#### 3.5.9 Close & Payout
 
 ##### F4 — auto-close
 
@@ -1392,7 +1393,7 @@ journalling before submission, resume-on-restart, and no reuse across operations
 is derivable client-side before the deshield lands, which is what makes the same-block mitigation of
 §3.5.35 possible.
 
-#### 3.5.35 D-7 — the private path costs money on a bonding curve, and we say so
+#### 3.5.35 D-7 private path cost
 
 **This is the finding that argues against the mechanism we are bidding on. We volunteer it, with
 numbers.**
@@ -1514,7 +1515,7 @@ it in the U5 disclosure rather than leaving a user to assume that "unlinkable" i
 RFP's own Design Rationale asks for exactly this kind of honesty in the anonymity discussion, and it
 is the sort of item that surfaces in an audit whether or not the bid mentions it first.
 
-### 3.6 Key design decisions (C1–C26)
+### 3.6 Design Decisions
 
 
 - **C1 — Port the proven kernel; do not re-derive it.** The curve is `amm_core`'s constant-product
@@ -1609,7 +1610,7 @@ is the sort of item that surfaces in an audit whether or not the bid mentions it
   deshield and U7's combined pre-check are parameterised by the runtime rather than written against an
   assumed rate. Building both costs nothing extra; assuming either answer would.
 
-### 3.7 Declared deviations, and the readings we take where the specification is ambiguous
+### 3.7 Deviations & Readings
 
 
 We request **three** deviations from hard requirements. All three are forced by defects in the
@@ -1678,7 +1679,7 @@ S3 does not require tests for the Privacy block (§3.5.28). We test it anyway:
 | C22 | Same-block deshield+buy submission succeeds; delayed-deshield fallback reverts cleanly (R2) and resubmits |
 | D-7 | The disclosed exposure figure matches a simulated fill with *n* buys landing in the gap |
 
-### 3.9 Requirements Traceability Matrix
+### 3.9 Traceability
 
 All **35** hard requirements — the 34 numbered plus the unnumbered Supportability milestone mandate — are owned by at least one milestone with an objective acceptance test. Zero gaps. `R` = reuse of existing Logos code, `N` = net-new. Section references point to the mechanics above.
 
@@ -2027,7 +2028,6 @@ recommend a mainnet deployment of an immutable program that had not been through
 | **Mini-app heavier than estimated** | M3/M4 client streams slip | Stream C runs at ~6.5–7 of 12 weeks deliberately — this is where the buffer lives |
 | **The second deshield leg is disproportionately expensive to prove** | U1's single-transaction atomic deshield splits into two PPE transactions | The *absolute* proving cost is a platform constant we design around from day one (asynchronous private path, §3.5.12), so only the **marginal** cost is at risk; measured at M0 with Logos's own chain-caller depth sweep. The split is pre-specified with its disclosed correlation window, and because it gives up cross-leg atomicity it would be **raised as a declared deviation** against §3.7's U1 reading, not absorbed. Dormant while there is no user-paid gas to deshield (C25) |
 | **M0's decision record is not answered inside M0** — the RFP states Logos "typically respond within 14 days", and M0 is ≈1.5 weeks | M2 opens without DEV-1/DEV-2 settled, and M2 is where both land | M1 does not depend on either: it is the curve kernel, virtual reserves, buckets, creation and the frozen IDL, none of which either deviation touches. So M1 and M2 swap order if the answer is late, and the 12-week total is unchanged. We flag it because it is the one M0 gate we cannot compel |
-| **Testnet 0.3 slips indefinitely** | M7 and M8 do not trigger | They are outside the 12-week envelope by construction (C19); the main programme completes regardless |
 
 ## Total Requested Budget (USD)
 
@@ -2104,13 +2104,17 @@ Vacuumlabs maintains the project as a team — support is not tied to any single
 We provide a **6-month post-delivery support window** from acceptance of the final milestone, **included in the total requested budget**, covering:
 
 - **Defect warranty** — reproducible failures against the delivered test suite, fixed at no charge. A confirmed defect in the deployed bonding-curve program is shipped as a new versioned deployment through the same path as M6/M7/M8, with migration notes for the creators and holders of affected sales.
-- **Compatibility maintenance as LEZ and SPEL evolve.** The client surface is cheap to keep current by construction: the SPEL IDL is generated and frozen in M1 (U9), and the CLI and Basecamp mini-app both consume the single client core module rather than reimplementing it (C8), so a runtime change is one regeneration plus one module rather than three parallel updates. The lockfile pins the LEZ and SPEL revisions we build against, and the platform-triggered M7/M8 milestones already establish the re-verify-and-redeploy mechanism this maintenance follows.
+- **From the M6 testnet-0.2 delivery onward we track every LEZ and SPEL release.** Where a release affects the program or the client surface we port it and publish a compatibility delta **within 10 business days**; independently of releases we publish a compatibility status **at least quarterly**, for which "no action required" is a valid status. The client surface is cheap to keep current by construction: the SPEL IDL is generated and frozen in M1 (U9), and the CLI and Basecamp mini-app both consume the single client core module rather than reimplementing it (C8), so a runtime change is one regeneration plus one module rather than three parallel updates. The lockfile pins the LEZ and SPEL revisions we build against, and the platform-triggered M7/M8 milestones already establish the re-verify-and-redeploy mechanism this maintenance follows.
 - **Analytics event-path activation** — when LP-0012's accepted event mechanism merges into mainline LEZ, the U8 observer switches from indexer calldata, `getAccountAtBlock` and intra-block replay to the native events, and the interim state-derived history is retired (C9). The observer's schema is fixed in M1 alongside the IDL, so this is activation, not redesign.
 - **Security-report handling** — security-relevant reports follow a documented disclosure path and are **acknowledged within 48 hours** with a fix or a documented mitigation. A launchpad holds other people's collateral, so this is the one commitment that is not best-effort.
 - **Integration support for early teams composing against the program.** The graduation seam exists precisely for this: close emits the graduation-relevant state — real collateral, seed reserve `R`, final spot — as a documented payload, so a DEX integration (RFP-004) or a downstream product can consume it without us reopening the program. The fee-rate and treasury admin authority is separable for the same reason.
 - **Feature extensions beyond the RFP scope are separate engagements**, not assumed here.
 
 **One handover artifact worth naming:** the M0 decision record — the three declared deviations and the twelve readings, with Logos's confirmation or direction against each — is a delivered artifact, so a future maintainer can see which behaviours were specification decisions rather than implementation choices.
+
+**We can operate Synarton, not only deliver it.** Everything above covers the software itself - maintenance, defects, compatibility, and disclosure. Operating a launchpad is a separate responsibility: holding the relevant admin authority, monitoring live sales, and responding when something goes wrong.
+
+If Logos would like us to take on that operational role, we are happy to scope and price it as a separate engagement. The people who would carry this responsibility are already part of [the team above](#team-members) - Uroš as CPO, 0xcr1st0f on business development and the rest of the development team. This same team covers Synarton's bonding-curve and LBP mechanisms if both are awarded to us.
 
 ## Permissions and Consent
 
